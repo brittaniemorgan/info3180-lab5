@@ -8,7 +8,8 @@ This file creates your application.
 from app import app
 from flask import render_template, request, jsonify, send_file
 import os
-
+from .models import Movie
+from .forms import MovieForm
 
 ###
 # Routing for your application.
