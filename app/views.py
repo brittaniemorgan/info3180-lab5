@@ -48,7 +48,7 @@ def movies():
         return jsonify({"errors": errors}), 400
 
 @app.route('/api/v1/movies', methods=['GET'])
-def listMovies():
+def add_movies():
     moviesList = []
     movies = db.session.execute(db.select(Movie)).scalars()
     for movie in movies:

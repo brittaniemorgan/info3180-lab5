@@ -5,7 +5,7 @@ class Movie(db.Model):
     __tablename__ = 'movies'
 
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(100))
+    title = db.Column(db.String(100), unique=True)
     description = db.Column(db.Text)
     poster = db.Column(db.String(100), unique=True)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)

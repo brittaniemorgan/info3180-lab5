@@ -70,6 +70,7 @@
                 console.log(data); 
                 displayFlash = true;
                 if (data.errors){
+                    isSuccess = false;
                     flashMessage.value = data.errors;
                 }
                 else{
@@ -80,6 +81,7 @@
             .catch(function (error) { 
                 console.log(error); 
                 displayFlash = true;
+                isSuccess = false;
                 flashMessage.value = error;
         });
     };
