@@ -29,6 +29,10 @@ def movies():
         description = form.description.data
         poster = form.poster.data
         filename = secure_filename(poster.filename)
+        if Movie.query.filter_by(title=title).first():
+            return jsonify({"errors": "Movie with this name already exists"}), 400
+        if Movie.query.filter_by(poster=filename).first():
+            return jsonify({"errors": "File with this name already exists"}), 400
         poster.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
         newMovie = Movie(title=title, description=description, poster=filename)
         db.session.add(newMovie)

@@ -4,7 +4,6 @@
 
 <template>
   <body>
-    <h1>Upload Form</h1>
     <div>
         <MovieForm />
     </div>

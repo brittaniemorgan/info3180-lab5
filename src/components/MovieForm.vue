@@ -1,4 +1,8 @@
 <template>
+    <h1>Upload Form</h1>
+    <div v-if="flashMessage" v-bind:class="[isSuccess ? alertSuccessClass : alertErrorClass]" class="alert">
+            {{ flashMessage }}
+    </div>
     <div>   
         <form id="movieForm" @submit.prevent="saveMovie">
             <div class="form-group mb-3">
@@ -22,10 +26,17 @@
 <script setup>
     import { ref, onMounted } from 'vue';
 
+    const alertSuccessClass = 'alert-success';
+    const alertErrorClass = 'alert-danger';
+
     let title = ref(""); 
     let description = ref(""); 
     let csrf_token = ref(""); 
     let poster = ref(null)
+    let flashMessage = ref('')
+    let displayFlash = ref(false);
+    let isSuccess = ref(false);
+
     function getCsrfToken() { 
         fetch('/api/v1/csrf-token') 
             .then((response) => response.json()) 
@@ -49,11 +60,20 @@
                 return response.json(); 
             }) 
             .then(function (data) { 
-                // display a success message 
                 console.log(data); 
+                displayFlash = true;
+                if (data.errors){
+                    flashMessage.value = data.errors;
+                }
+                else{
+                    isSuccess = true;
+                    flashMessage.value = 'Movie added successfully!';
+                }
             }) 
             .catch(function (error) { 
                 console.log(error); 
+                displayFlash = true;
+                flashMessage.value = error;
         });
     };
 

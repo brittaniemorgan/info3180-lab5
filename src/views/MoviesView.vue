@@ -74,6 +74,13 @@ div{
 .card{
     display: grid;
     grid-template-columns: 1fr 1fr;
+    box-shadow: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.card:hover {
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
 }
 
 body{
@@ -87,4 +94,11 @@ body{
     padding-left: 0px;
     margin-left:0px;
 }
+
+.no-movies {
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+}
+
 </style>
