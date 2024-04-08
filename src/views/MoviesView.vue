@@ -1,24 +1,27 @@
 <template>
-    <div>
-        <div v-if="!movies.length" class="no-movies">
-            You haven't added any movies.
-        </div>
-        <div class="movies">
-            <div v-for="(movie, index) in movies" :key="index" class="col-md-6">
-                <div class="card mb-4">
-                    <div class="card-body">
+    <body>
+        <h1>Movies</h1>
+        <div class="container">        
+            <div v-if="!movies.length" class="no-movies">
+                You haven't added any movies.
+            </div>
+            <div class="movies">
+                <div v-for="(movie) in movies" >
+                    <div class="card">
                         <div>
                             <img :src="movie.poster" alt="Poster" />
                         </div>
-                        <div>
-                            <h5 class="card-title">{{ movie.title }}</h5>
-                            <p class="card-text">{{ movie.description }}</p>
+                        <div class="card-body">     
+                            <div>
+                                <h5 class="card-title">{{ movie.title }}</h5>
+                                <p class="card-text">{{ movie.description }}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </body>
 </template>
   
 
@@ -49,14 +52,39 @@
 </script> 
 
 <style>
-img{
-    width: 200px;
+
+img {
+    max-width: 300px;
+    max-height: 300px; 
+    object-fit: contain;
+}
+
+div{
+    margin: 0px;
+    padding: 0px;
 }
 
 .movies{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap: 70px;
-    width: 50%;
+    grid-column-gap: 10%;
+    grid-row-gap: 20px;
+}
+
+.card{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+body{
+    padding-top: 3%;
+    padding-bottom: 4%;
+    padding-left: 4%;
+    padding-right: 4%;
+}
+
+.card-body{
+    padding-left: 0px;
+    margin-left:0px;
 }
 </style>

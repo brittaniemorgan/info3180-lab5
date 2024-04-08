@@ -10,7 +10,8 @@
                 <textarea name="description" v-model="description" class="form-control"></textarea>
             </div>
             <div class="form-group mb-3">
-                <label for="poster" class="form-label">Movie Poster</label>
+                <label for="poster" class="form-label">Photo Upload</label>
+                <br>
                 <input type="file" name="poster" @change="onFileChange" class="form-control-file" />
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>

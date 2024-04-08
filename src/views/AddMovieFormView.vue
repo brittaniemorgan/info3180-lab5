@@ -1,11 +1,13 @@
 <script setup>
-  import MovieForm from "@/components/MovieForm.vue";
+    import MovieForm from "@/components/MovieForm.vue";
 </script>
 
 <template>
+  <body>
+    <h1>Upload Form</h1>
     <div>
-      <h1>Add Movie</h1>
-      <MovieForm />
+        <MovieForm />
     </div>
+  </body> 
 </template>
 
