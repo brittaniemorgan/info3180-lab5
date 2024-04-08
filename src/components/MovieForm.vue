@@ -1,7 +1,14 @@
 <template>
     <h1>Upload Form</h1>
     <div v-if="flashMessage" v-bind:class="[isSuccess ? alertSuccessClass : alertErrorClass]" class="alert">
+        <div v-if="!Array.isArray(flashMessage)">
             {{ flashMessage }}
+        </div>
+        <div v-else>
+            <ul>
+                <li v-for="error in flashMessage">{{ error }}</li>
+            </ul>
+        </div>
     </div>
     <div>   
         <form id="movieForm" @submit.prevent="saveMovie">
